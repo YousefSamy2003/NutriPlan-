@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NutriPlan - Food, Nutrition & Fitness Planner</title>
-    <link rel="icon" href="./src/images/favicon.png">
+    <link rel="icon" href="./src/images/favicon.png" />
     <script>
       window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
     </script>
@@ -95,6 +95,8 @@
               <a
                 class="nav-link flex items-center gap-3 px-3 py-2.5 bg-emerald-50 text-emerald-700 rounded-lg transition-all"
                 href="#"
+                data-section=" meal-categories-section all-recipes-section search-filters-section"
+               
               >
                 <i class="fa-solid fa-utensils w-5"></i>
                 <span class="font-semibold">Meals & Recipes</span>
@@ -104,6 +106,7 @@
               <a
                 class="nav-link flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg transition-all"
                 href="#"
+                data-section="products-section"
               >
                 <i class="fa-solid fa-barcode w-5"></i>
                 <span class="font-medium">Product Scanner</span>
@@ -113,6 +116,7 @@
               <a
                 class="nav-link flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 rounded-lg transition-all"
                 href="#"
+                data-section="foodlog-section"
               >
                 <i class="fa-solid fa-clipboard-list w-5"></i>
                 <span class="font-medium">Food Log</span>
@@ -164,6 +168,7 @@
 
       <section
         id="search-filters-section"
+            first-section="first-section"
         class="px-8 py-6 bg-white border-b border-gray-200"
       >
         <div class="mx-auto">
@@ -196,7 +201,7 @@
         </div>
       </section>
 
-      <section id="meal-categories-section" class="px-8 py-6 bg-white">
+      <section id="meal-categories-section"     first-section="first-section" class="px-8 py-6 bg-white">
         <div>
           <div class="flex items-center justify-between mb-4">
             <div>
@@ -235,7 +240,7 @@
         </div>
       </section>
 
-      <section id="all-recipes-section" class="px-8 py-8 bg-gray-50">
+      <section id="all-recipes-section"     first-section="first-section" class="px-8 py-8 bg-gray-50">
         <div>
           <div class="flex items-center justify-between mb-6">
             <div>
@@ -315,7 +320,7 @@
         </div>
       </section>
 
-      <section id="meal-details" class="px-8 py-8 bg-gray-50">
+      <section id="meal-details"  class="px-8 py-8 bg-gray-50 hidden ">
         <div class="max-w-7xl mx-auto">
           <!-- Back Button -->
           <button
@@ -752,7 +757,7 @@
       </section>
 
       <!-- ============= PRODUCT SCANNER SECTION ============= -->
-      <section id="products-section" class="px-8 py-8 bg-gray-50 min-h-screen">
+      <section id="products-section" class="px-8 py-8 bg-gray-50 min-h-screen hidden">
         <div class="max-w-7xl mx-auto">
           <!-- Search Header -->
           <div
@@ -988,7 +993,7 @@
       </section>
 
       <!-- ============= FOOD LOG SECTION ============= -->
-      <section id="foodlog-section" class="px-8 py-8 bg-gray-50 min-h-screen">
+      <section id="foodlog-section" class="px-8 py-8 bg-gray-50 min-h-screen hidden">
         <div class="max-w-7xl mx-auto">
           <!-- Page Header -->
           <div
