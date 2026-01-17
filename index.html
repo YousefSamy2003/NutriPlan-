@@ -96,7 +96,6 @@
                 class="nav-link flex items-center gap-3 px-3 py-2.5 bg-emerald-50 text-emerald-700 rounded-lg transition-all"
                 href="#"
                 data-section=" meal-categories-section all-recipes-section search-filters-section"
-               
               >
                 <i class="fa-solid fa-utensils w-5"></i>
                 <span class="font-semibold">Meals & Recipes</span>
@@ -168,7 +167,7 @@
 
       <section
         id="search-filters-section"
-            first-section="first-section"
+        first-section="first-section"
         class="px-8 py-6 bg-white border-b border-gray-200"
       >
         <div class="mx-auto">
@@ -188,20 +187,95 @@
 
           <div class="flex items-center gap-3 overflow-x-auto pb-2">
             <button
-              class="px-4 py-2 bg-emerald-600 text-white rounded-full font-medium text-sm whitespace-nowrap hover:bg-emerald-700 transition-all"
+              class="area-filter-btn px-4 py-2 rounded-full font-medium text-sm whitespace-nowrap hover:bg-emerald-700 hover:text-white transition-all bg-gray-100 text-gray-700"
+              data-area=""
             >
-              All Recipes
+              All Areas
             </button>
+
             <button
-              class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              class="area-filter-btn px-4 py-2 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all bg-emerald-600 text-white"
+              data-area="Algerian"
             >
-              Egyptain
+              Algerian
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="American"
+            >
+              American
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Argentinian"
+            >
+              Argentinian
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Australian"
+            >
+              Australian
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="British"
+            >
+              British
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Canadian"
+            >
+              Canadian
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Chinese"
+            >
+              Chinese
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Croatian"
+            >
+              Croatian
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Dutch"
+            >
+              Dutch
+            </button>
+
+            <button
+              class="area-filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+              data-area="Egyptian"
+            >
+              Egyptian
             </button>
           </div>
+
+          <!-- <div class="flex items-center gap-3 overflow-x-auto pb-2">
+       
+        
+    </div> -->
         </div>
       </section>
 
-      <section id="meal-categories-section"     first-section="first-section" class="px-8 py-6 bg-white">
+      <section
+        id="meal-categories-section"
+        first-section="first-section"
+        class="px-8 py-6 bg-white"
+      >
         <div>
           <div class="flex items-center justify-between mb-4">
             <div>
@@ -240,7 +314,11 @@
         </div>
       </section>
 
-      <section id="all-recipes-section"     first-section="first-section" class="px-8 py-8 bg-gray-50">
+      <section
+        id="all-recipes-section"
+        first-section="first-section"
+        class="px-8 py-8 bg-gray-50"
+      >
         <div>
           <div class="flex items-center justify-between mb-6">
             <div>
@@ -320,7 +398,7 @@
         </div>
       </section>
 
-      <section id="meal-details"  class="px-8 py-8 bg-gray-50 hidden ">
+      <section id="meal-details" class="px-8 py-8 bg-gray-50 hidden">
         <div class="max-w-7xl mx-auto">
           <!-- Back Button -->
           <button
@@ -757,7 +835,10 @@
       </section>
 
       <!-- ============= PRODUCT SCANNER SECTION ============= -->
-      <section id="products-section" class="px-8 py-8 bg-gray-50 min-h-screen hidden">
+      <section
+        id="products-section"
+        class="px-8 py-8 bg-gray-50 min-h-screen hidden"
+      >
         <div class="max-w-7xl mx-auto">
           <!-- Search Header -->
           <div
@@ -993,7 +1074,10 @@
       </section>
 
       <!-- ============= FOOD LOG SECTION ============= -->
-      <section id="foodlog-section" class="px-8 py-8 bg-gray-50 min-h-screen hidden">
+      <section
+        id="foodlog-section"
+        class="px-8 py-8 bg-gray-50 min-h-screen hidden"
+      >
         <div class="max-w-7xl mx-auto">
           <!-- Page Header -->
           <div
