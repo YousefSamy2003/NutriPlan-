@@ -22,3 +22,31 @@ export async function filterByCountry(country) {
   console.log(data);
   return data;
 }
+
+
+
+export async function filterByCategory(category) {
+    let data = [];
+    let AllMeals = await fetch(
+      `https://nutriplan-api.vercel.app/api/meals/filter?category=${category}&page=1&limit=25`
+    );
+    let dataMeals = await AllMeals.json();
+    data = dataMeals.results;
+    console.log(data);
+    return data;
+}
+
+
+
+
+
+export async function getProductsByCategory(category) {
+  let data = [];
+  let AllMeals = await fetch(
+    `https://nutriplan-api.vercel.app/api/products/category/${category}
+`
+  );
+  let dataMeals = await AllMeals.json();
+  data = dataMeals.results;
+  return data;
+}
