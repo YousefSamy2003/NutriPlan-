@@ -81,31 +81,30 @@ export function sidebarMobileToggle() {
   });
 }
 
+export function HandleViewBtn() {
+  const gridViewBtn = document.getElementById("grid-view-btn");
+  const listViewBtn = document.getElementById("list-view-btn");
+  const recipesGrid = document.getElementById("recipes-grid");
+  const recipeCards = document.querySelectorAll(".recipe-card");
 
-export function HandleViewBtn(){
-    const gridViewBtn = document.getElementById("grid-view-btn");
-const listViewBtn = document.getElementById("list-view-btn");
-const recipesGrid = document.getElementById("recipes-grid");
-const recipeCards = document.querySelectorAll(".recipe-card");
+  console.log(gridViewBtn, listViewBtn, recipesGrid, recipeCards);
 
-console.log(gridViewBtn, listViewBtn, recipesGrid, recipeCards);
-
-gridViewBtn.addEventListener("click", () => {
-  gridViewBtn.classList.add("bg-white", "shadow-sm");
-  listViewBtn.classList.remove("bg-white", "shadow-sm");
-  recipesGrid.classList.remove("grid-cols-2", "gap-4");
-  recipesGrid.classList.add("grid-cols-4", "gap-5");
-  //    recipeCards.forEach((card) => {
-  //     card.classList.remove("flex", "flex-row", "h-40");
-  //   });
-});
-listViewBtn.addEventListener("click", () => {
-  listViewBtn.classList.add("bg-white", "shadow-sm");
-  gridViewBtn.classList.remove("bg-white", "shadow-sm");
-  recipesGrid.classList.remove("grid-cols-4", "gap-5");
-  recipesGrid.classList.add("grid-cols-2", "gap-4");
-  //   recipeCards.forEach((card) => {
-  //     card.classList.add("flex", "flex-row", "h-40");
-  //   });
-});
+  gridViewBtn.addEventListener("click", () => {
+    gridViewBtn.classList.add("bg-white", "shadow-sm");
+    listViewBtn.classList.remove("bg-white", "shadow-sm");
+    recipesGrid.classList.remove("grid-cols-2", "gap-4");
+    recipesGrid.classList.add("grid-cols-4", "gap-5");
+    //    recipeCards.forEach((card) => {
+    //     card.classList.remove("flex", "flex-row", "h-40");
+    //   });
+  });
+  listViewBtn.addEventListener("click", () => {
+    listViewBtn.classList.add("bg-white", "shadow-sm");
+    gridViewBtn.classList.remove("bg-white", "shadow-sm");
+    recipesGrid.classList.remove("grid-cols-4", "gap-5");
+    recipesGrid.classList.add("grid-cols-2", "gap-4");
+    //   recipeCards.forEach((card) => {
+    //     card.classList.add("flex", "flex-row", "h-40");
+    //   });
+  });
 }

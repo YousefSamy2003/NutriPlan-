@@ -1,4 +1,5 @@
-
+import { filterByCountry } from "../ui/DataManager.js";
+import { getAllMeals } from "../ui/DataManager.js";
 
 export function EmptySearchDesign() {
   document.getElementById(
@@ -18,6 +19,7 @@ export function LoadingSpinnerDesign() {
 </div> `;
   document.getElementById("recipes-grid").innerHTML = box;
 }
+
 export function displayMeals(recipes) {
   let box = ``;
   for (let i = 0; i < recipes.length; i++) {
@@ -77,4 +79,37 @@ export function displayMeals(recipes) {
   if (recipes.length === 0) {
     EmptySearchDesign();
   }
+}
+
+// filterByCountry("Canadian");
+
+export function filterByCountryDisplay() {
+  const allCountryBtns = document.querySelectorAll("#all-Btn-country button");
+
+  allCountryBtns.forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      allCountryBtns.forEach((button) => {
+        button.classList.replace("text-white", "text-gray-700");
+        button.classList.replace("bg-emerald-600", "bg-gray-100");
+      });
+      btn.classList.replace("text-gray-700", "text-white");
+      btn.classList.replace("bg-gray-100", "bg-emerald-600");
+
+      const country = e.currentTarget.getAttribute("data-area");
+
+      if (country === "AllAreas") {
+        let recipes = await getAllMeals("chicken");
+        displayMeals(recipes);
+        document.getElementById(
+          "recipes-count"
+        ).innerHTML = `Showing ${recipes.length}  recipes  `;
+      } else {
+        let recipes = await filterByCountry(country);
+        displayMeals(recipes);
+        document.getElementById(
+          "recipes-count"
+        ).innerHTML = `Showing ${recipes.length} ${country} recipes  `;
+      }
+    });
+  });
 }

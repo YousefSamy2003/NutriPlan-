@@ -4,7 +4,15 @@ import {
   HandleViewBtn,
 } from "./ui/handleLogic.js";
 import { Search } from "./ui/search.js";
-import { displayMeals, LoadingSpinnerDesign } from "./ui/display.js";
+import {
+  displayMeals,
+  LoadingSpinnerDesign,
+  EmptySearchDesign,
+} from "./ui/display.js";
+
+import { getAllMeals, filterByCountry } from "./ui/DataManager.js";
+import { filterByCountryDisplay } from "./ui/display.js";
+
 /**
  * NutriPlan - Main Entry Point
  *
@@ -59,6 +67,7 @@ RoutingBetweenSections();
 sidebarMobileToggle();
 HandleViewBtn();
 Search();
+filterByCountryDisplay();
 let recipes = await getAllMeals("chicken");
 displayMeals(recipes);
 
@@ -85,7 +94,7 @@ displayMeals(recipes);
 //   let box = ``;
 //   for (let i = 0; i < recipes.length; i++) {
 //     box += `
-         
+
 //          <div
 //               class="recipe-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group"
 //               data-meal-id="${recipes[i].id}"
@@ -131,8 +140,7 @@ displayMeals(recipes);
 //                 </div>
 //               </div>
 //             </div>
-           
-        
+
 //         `;
 //   }
 //   document.getElementById("recipes-grid").innerHTML = box;
@@ -144,32 +152,64 @@ displayMeals(recipes);
 
 /// get all meals function
 
-export async function getAllMeals(item) {
-  let data = [];
-  LoadingSpinnerDesign();
-  let AllMeals = await fetch(
-    `https://nutriplan-api.vercel.app/api/meals/search?q=${item}&page=1&limit=25`
-  );
-  let dataMeals = await AllMeals.json();
-  data = dataMeals.results;
-  console.log(data);
-  return data;
-}
+// export async function getAllMeals(item) {
+//   let data = [];
+//   LoadingSpinnerDesign();
+//   let AllMeals = await fetch(
+//     `https://nutriplan-api.vercel.app/api/meals/search?q=${item}&page=1&limit=25`
+//   );
+//   let dataMeals = await AllMeals.json();
+//   data = dataMeals.results;
+//   console.log(data);
+//   return data;
+// }
 
 // search functionality
 
+// export async function filterByCountry(country) {
+//   let data = [];
+//   let AllMeals = await fetch(
+//     `https://nutriplan-api.vercel.app/api/meals/filter?area=${country}&page=1&limit=25`
+//   );
+//   let dataMeals = await AllMeals.json();
+//   data = dataMeals.results;
+//   console.log(data);
+//   return data;
+// }
+// // filterByCountry("Canadian");
+
+// export  function filterByCountryDisplay() {
+//   const allCountryBtns = document.querySelectorAll("#all-Btn-country button");
+
+//   allCountryBtns.forEach((btn) => {
+//     btn.addEventListener("click", async (e) => {
+//       const country = e.currentTarget.getAttribute("data-area");
+
+//       if (country === "AllAreas") {
+//         let recipes = await getAllMeals("chicken");
+//         displayMeals(recipes);
+//         document.getElementById(
+//           "recipes-count"
+//         ).innerHTML = `Showing ${recipes.length}  recipes  `;
+//       } else {
+//         let recipes = await filterByCountry(country);
+//         displayMeals(recipes);
+//         document.getElementById(
+//           "recipes-count"
+//         ).innerHTML = `Showing ${recipes.length} ${country} recipes  `;
+//       }
+//     });
+//   });
+// }
 
 
 
 
-export async function filterByCountry(country) {
-    let data = [];
-    let AllMeals = await fetch(
-        `https://nutriplan-api.vercel.app/api/meals/filter?area=${country}&page=1&limit=25`
-    );
-    let dataMeals = await AllMeals.json();
-    data = dataMeals.results;
-    console.log(data);
-    return data;
-}
-filterByCountry("Canadian");
+
+
+
+
+
+
+
+
