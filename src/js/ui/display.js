@@ -1,6 +1,6 @@
 import { filterByCountry, filterByCategory } from "../ui/DataManager.js";
 import { getAllMeals } from "../ui/DataManager.js";
-import {getProductsByCategory} from "../ui/DataManager.js";
+import { getProductsByCategory } from "../ui/DataManager.js";
 export function EmptySearchDesign() {
   document.getElementById(
     "recipes-grid"
@@ -133,13 +133,11 @@ export function filterByCategoryDisplay() {
   });
 }
 
-
-
-
-export  function displayProduct(product) {
+export function displayProduct(product) {
   let box = ``;
-  for (let i = 0; i < product.length; i++) {
-    box += `<div
+  if (product.length !== 0) {
+    for (let i = 0; i < product.length; i++) {
+      box += `<div
                 class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group"
                 data-barcode="${product[i].barcode}"
               >
@@ -157,7 +155,11 @@ export  function displayProduct(product) {
                   <div
                     class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded uppercase"
                   >
-                    Nutri-Score ${product[i].nutritionGrade ?` ${product[i].nutritionGrade.toUpperCase()}` : ""}
+                    Nutri-Score ${
+                      product[i].nutritionGrade
+                        ? ` ${product[i].nutritionGrade.toUpperCase()}`
+                        : ""
+                    }
                   </div>
 
                   <!-- NOVA Badge -->
@@ -227,14 +229,20 @@ export  function displayProduct(product) {
                   </div>
                 </div>
               </div>`;
+    }
+    document.getElementById("products-grid").innerHTML = box;
+  } else {
+    document.getElementById(
+      "products-grid"
+    ).innerHTML = `<div class="flex flex-col items-center justify-center py-12 text-center">
+    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-search text-gray-400 text-2xl"></i>
+    </div>
+    <p class="text-gray-500 text-lg">No Products found</p>
+    <p class="text-gray-400 text-sm mt-2">Try searching for something else</p>
+</div>`;
   }
-
-  document.getElementById("products-grid").innerHTML = box;
 }
-
-
-
-
 
 export function handleProductCategoryBtn() {
   const productCategoryBtns = document.querySelectorAll(
@@ -250,3 +258,4 @@ export function handleProductCategoryBtn() {
     });
   });
 }
+

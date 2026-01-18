@@ -60,3 +60,17 @@ export async function GetProductByBarcode(barcode) {
 
   return data;
 }
+
+
+
+
+export async function getProductByname(name) {
+  let data = [];
+  let AllMeals = await fetch(
+    `https://nutriplan-api.vercel.app/api/products/search?q=${name}&page=1&limit=24`
+  );
+  let dataMeals = await AllMeals.json();
+  data = dataMeals.results;
+  console.log(data);
+  return data;
+}

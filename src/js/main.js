@@ -3,7 +3,7 @@ import {
   sidebarMobileToggle,
   HandleViewBtn,
 } from "./ui/handleLogic.js";
-import { Search , searchByBarcode} from "./ui/search.js";
+import { Search, searchByBarcode , searchProductsByName} from "./ui/search.js";
 import {
   displayMeals,
   LoadingSpinnerDesign,
@@ -28,6 +28,23 @@ displayMeals(recipes);
 filterByCategoryDisplay();
 handleProductCategoryBtn();
 searchByBarcode();
+searchProductsByName();
+
+//
+
+// async function getProductByname(name) {
+//   let data = [];
+//   let AllMeals = await fetch(
+//     `https://nutriplan-api.vercel.app/api/products/search?q=${name}&page=1&limit=24`
+//   );
+//   let dataMeals = await AllMeals.json();
+//   data = dataMeals.results;
+//   console.log(data);
+//   return data;
+// }
+
+
+
 
 
 // GetProductByBarcode("5010029000016");

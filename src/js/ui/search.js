@@ -3,6 +3,7 @@ import { displayMeals } from "./display.js";
 import { EmptySearchDesign } from "./display.js";
 import { GetProductByBarcode } from "../ui/DataManager.js";
 import { displayProduct } from "./display.js";
+import {getProductByname} from "../ui/DataManager.js";
 
 export function Search() {
   const searchInput = document.getElementById("search-input");
@@ -46,5 +47,18 @@ export function searchByBarcode() {
     console.log(List);
     displayProduct(List);
     console.log(List);
+  });
+}
+
+
+
+export function searchProductsByName() {
+  const productSearchInput = document.getElementById("product-search-input");
+  const searchProductBtn = document.getElementById("search-product-btn");
+
+  searchProductBtn.addEventListener("click", async () => {
+    let searchTerm = productSearchInput.value.trim();
+    let products = await getProductByname(searchTerm);
+    displayProduct(products);
   });
 }
