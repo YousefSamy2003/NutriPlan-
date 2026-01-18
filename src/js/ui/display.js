@@ -141,7 +141,7 @@ export  function displayProduct(product) {
   for (let i = 0; i < product.length; i++) {
     box += `<div
                 class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer group"
-                data-barcode="7613034626844"
+                data-barcode="${product[i].barcode}"
               >
                 <div
                   class="relative h-40 bg-gray-100 flex items-center justify-center overflow-hidden"
@@ -157,7 +157,7 @@ export  function displayProduct(product) {
                   <div
                     class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded uppercase"
                   >
-                    Nutri-Score ${product[i].nutritionGrade.toUpperCase()}
+                    Nutri-Score ${product[i].nutritionGrade ?` ${product[i].nutritionGrade.toUpperCase()}` : ""}
                   </div>
 
                   <!-- NOVA Badge -->

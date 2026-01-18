@@ -15,6 +15,7 @@ import {
   filterByCountryDisplay,
   filterByCategoryDisplay,
   handleProductCategoryBtn,
+  displayProduct,
 } from "./ui/display.js";
 
 RoutingBetweenSections();
@@ -27,73 +28,33 @@ displayMeals(recipes);
 filterByCategoryDisplay();
 handleProductCategoryBtn();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+async function GetProductByBarcode(barcode) {
+  let data = [];
+  let AllMeals = await fetch(
+    `https://nutriplan-api.vercel.app/api/products/barcode/${barcode}`
+  );
+  let dataMeals = await AllMeals.json();
+  data = dataMeals.result;
+  console.log(data);
+
+  return data;
+}
+// GetProductByBarcode("5010029000016");
+
+const barcodeInput = document.getElementById("barcode-input");
+
+const lookupBarcodeBtn = document.getElementById("lookup-barcode-btn");
+
+lookupBarcodeBtn.addEventListener("click", async () => {
+  let List = [];
+  const barcode = barcodeInput.value.trim();
+
+  let product = await GetProductByBarcode(barcode);
+  List.push(product);
+  console.log(List);
+  displayProduct(List);
+  console.log(List);
+});
 
 
 
