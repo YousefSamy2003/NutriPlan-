@@ -1,6 +1,8 @@
 import { getAllMeals } from "../ui/DataManager.js";
 import { displayMeals } from "./display.js";
 import { EmptySearchDesign } from "./display.js";
+import { GetProductByBarcode } from "../ui/DataManager.js";
+import { displayProduct } from "./display.js";
 
 export function Search() {
   const searchInput = document.getElementById("search-input");
@@ -28,3 +30,21 @@ export function Search() {
 
 
 
+
+
+export function searchByBarcode() {
+  const barcodeInput = document.getElementById("barcode-input");
+
+  const lookupBarcodeBtn = document.getElementById("lookup-barcode-btn");
+
+  lookupBarcodeBtn.addEventListener("click", async () => {
+    let List = [];
+    const barcode = barcodeInput.value.trim();
+
+    let product = await GetProductByBarcode(barcode);
+    List.push(product);
+    console.log(List);
+    displayProduct(List);
+    console.log(List);
+  });
+}
